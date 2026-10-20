@@ -24,6 +24,6 @@ npm-debug.log*
 Thumbs.db
 
 # # Scratch folders,
-# spike/
-# sprint-test/
-# todo-test/
+spike/
+sprint-test/
+todo-test/
