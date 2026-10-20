@@ -1,0 +1,29 @@
+# Dependencies:
+node_modules/
+
+# Build output: 
+dist/
+*.tsbuildinfo
+
+# Secrets: 
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# Files made by npm pack
+*.tgz
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# # Scratch folders,
+# spike/
+# sprint-test/
+# todo-test/

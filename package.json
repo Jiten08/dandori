@@ -1,0 +1,33 @@
+{
+  "name": "dandori",
+  "version": "0.1.0",
+  "description": "Plan before your AI agent builds: an architect interview, a plan in .plan/, and a plan check, as an MCP server.",
+  "bin": {
+    "dandori": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "rules",
+    "templates"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsc -p tsconfig.json --watch"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@modelcontextprotocol/server": "^2.3.1",
+    "gray-matter": "^4.0.3",
+    "yaml": "^2.9.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "typescript": "^7.0.2"
+  }
+}
