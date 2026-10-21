@@ -25,7 +25,7 @@ export async function ensurePlan() {
   }
 }
 
-export async function reafBrief(): Promise<Brief> {
+export async function readBrief(): Promise<Brief> {
   try {
     return Brief.parse(matter(await fs.readFile(at("brief.md"), "utf-8")).data);
   } catch {
@@ -38,10 +38,12 @@ export async function writeBrief(brief: Brief, summary = "# Project brief\n") {
 }
 
 export async function nextId(dir: "tasks" | "decisions", prefix: "T" | "D") {
-  const count = (await fs.readdir(at(dir))).filter((f) =>
-    f.endsWith(".md"),
-  ).length;
-  return `${prefix}-${String(count + 1).padStart(3, "0")}`; // For sort to work in listTasks
+  const numbers = (await fs.readdir(at(dir)))
+    .map((f) => f.match(/^[TD]-(\d+)\.md$/)?.[1])
+    .filter((n): n is string => n !== undefined)
+    .map(Number);
+  const highest = Math.max(0, ...numbers);
+  return `${prefix}-${String(highest + 1).padStart(3, "0")}`; // For sort to work in listTasks
 }
 
 export async function saveTask(meta: TaskMeta, body: string) {
